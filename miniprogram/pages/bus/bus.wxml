@@ -1,0 +1,144 @@
+<!--pages/bus/bus.wxml-->
+<!-- 日期 -->
+<view class="day">
+  <view class="day-left" bindtap="dateChangeButton" data-value="-1" style="color:rgba(0, 0, 0, {{font_left_ocp}})">←</view>
+  <view class="day-date">
+    <picker mode='date' value="{{curDate}}" start="{{startDate}}" end="{{endDate}}" bindchange="dateChangePicker">
+      {{curDate}} ({{curWeek}})</picker>
+  </view>
+  <view class="day-right" bindtap="dateChangeButton" data-value="1" style="color:rgba(0, 0, 0, {{font_right_ocp}})">→</view>
+</view>
+
+<!-- 车站名 -->
+<view class="station">
+  <view class="stt-ncst">
+    <image src="../../images/ncst.png" mode="aspectFit" class="ncst-img"></image>华北理工
+  </view>
+  <view class="stt-tsxz">
+    唐山客运<image src="../../images/tsxz.png" mode="aspectFit" class="tsxz-img"></image>
+  </view>
+</view>
+
+<!-- 时刻表 -->
+<view class="time">
+  <!-- 华北理工 -->
+  <view class='time-ncst-bg'>
+    <view class="time-ncst" wx:for='{{ncst}}' wx:key='ncst'>
+      <view wx:if="{{item.minute_diff >=0 && item.minute_diff <= 30}}" class='bus-ncst-text'>{{item.minute_diff}}min</view>
+      <image wx:if="{{(item.minute_diff >=0 && item.minute_diff <= 60)||(item.minute_diff>0 && index==0) }}" src="../../images/ncstBus.png" mode="aspectFit" class="bus-ncst"></image>
+      <image wx:elif="{{(item.minute_diff < 0 && item.bus_left <= 87)||(curDate==startDate&& curTime>'18:50')}}" src="../../images/ncstBus.png" mode="aspectFit" class="bus-ncst bus-run" style='--left--:{{item.bus_left}}%'></image>
+      <view wx:if='{{ index % 2 == 0 }}' class="time-color1">
+        <view style='color: {{item.color}}'>{{item.time}}</view>
+      </view>
+      <view wx:else class='time-color0'>
+        <view style='color: {{item.color}}'>{{item.time}}</view>
+      </view>
+    </view>
+  </view>
+  <!-- 唐山综合客运中心 -->
+  <view class='time-tsxz-bg'>
+    <view class="time-ncst time-tsxz" wx:for='{{ts}}' wx:key='tsxz'>
+      <view wx:if="{{item.minute_diff >=0 && item.minute_diff <= 30}}" class='bus-ncst-text bus-tsxz-text'>{{item.minute_diff}}min</view>
+      <image wx:if="{{(item.minute_diff >=0 && item.minute_diff <= 60)||(item.minute_diff>0 && index==0)}}" src="../../images/ncstBus.png" mode="aspectFit" class="bus-ncst bus-tsxz"></image>
+      <image wx:elif="{{(item.minute_diff < 0 && item.minute_diff > -90)||(curDate==startDate&& curTime>'18:50')}}" src="../../images/ncstBus.png" mode="aspectFit" class="bus-ncst bus-tsxz bus-run" style='--left--:{{item.bus_left}}%'></image>
+      <view wx:if='{{index % 2 == 1}}' class='time-color0'>
+        <view style='color: {{item.color}}'>{{item.time}}</view>
+      </view>
+      <view wx:else class='time-color1'>
+        <view style='color: {{item.color}}'>{{item.time}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="line"></view>
+
+<!-- 购票 -->
+<view class="ticket">
+  <view class="ticket-bg">
+    <view class="circle">
+      <view class='circle-box'>
+        <view class="circle-item"></view>
+      </view>
+      <view class='circle-box'>
+        <view class="circle-item"></view>
+      </view>
+      <view class='circle-box'>
+        <view class="circle-item"></view>
+      </view>
+      <view class='circle-box'>
+        <view class="circle-item"></view>
+      </view>
+      <view class='circle-box'>
+        <view class="circle-item"></view>
+      </view>
+    </view>
+    <view class="main">
+      <image src='../../images/keyunlogo.png' mode="aspectFit" class='keyun'></image>
+      <text class="title">华北理工客运车票</text><text class="title-jd">（机打）</text>
+      <view class="fpdm">发票代码：NCST-hk313</view>
+      <view class="point">NCST<image src='../../images/arrow.png' mode="aspectFit" class="arrow"></image>TSKY</view>
+      <view class="table">
+        <view class="tr" style="background-color: rgba(0, 0, 0, 0.1)">
+          <view class="th">乘车日期</view>
+          <view class="th">发车时间</view>
+          <view class="th">检票口</view>
+          <view class="th">车牌号</view>
+          <view class="th">座位号</view>
+        </view>
+        <view class="tr" style="color: #888888">
+          <view class="th th-date">{{curDate}}</view>
+          <view class="th">{{curTime}}</view>
+          <view class="th">1</view>
+          <view class="th">冀BKJ666</view>
+          <view class="th">8</view>
+        </view>
+        <view class="tr" style="background-color: rgba(0, 0, 0, 0.1)">
+          <view class="th th-style">车辆车型/等级/类别</view>
+          <view class="th">上限票价</view>
+          <view class="th">客票类型</view>
+          <view class="th">执行票价</view>
+        </view>
+        <view class="tr" style="color: #888888">
+          <view class="th th-style">大型高一/座椅</view>
+          <view class="th"></view>
+          <view class="th">未携童(全)</view>
+          <view class="th">20</view>
+        </view>
+      </view>
+    </view>
+    <view class="secondary">
+      <view class="title title2">副券</view>
+      <view class="fpdm2">发票代码:NCSThk313</view>
+      <image src="../../images/barCode_NCST.png" mode="scaleToFill" class="barCode" show-menu-by-longpress='true'></image>
+      <text class="barCode-num">*since 1895*</text>
+      <button class="buy" open-type="contact">
+        <text>点 我\n</text>
+        <text>购 票</text>
+      </button>
+    </view>
+    <view class="circle">
+      <view class='circle-box'>
+        <view class="circle-item"></view>
+      </view>
+      <view class='circle-box'>
+        <view class="circle-item"></view>
+      </view>
+      <view class='circle-box'>
+        <view class="circle-item"></view>
+      </view>
+      <view class='circle-box'>
+        <view class="circle-item"></view>
+      </view>
+      <view class='circle-box'>
+        <view class="circle-item"></view>
+      </view>
+    </view>
+  </view>
+
+</view>
+
+<text class="tip">tip: “点我购票”后须回复“<text class="tip-1">1</text>”或“购票”等任意关键字</text>
+
+<view class="copyright">Copyright©{{curYear}} Sang ｜<navigator class="about" hover-class="none" url="../../pages/about/about">👉关于我们</navigator>
+</view>

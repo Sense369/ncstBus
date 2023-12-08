@@ -1,0 +1,100 @@
+/* pages/about/about.wxss */
+page {
+  background-color: #f6cf9d;
+  color: #000000;
+}
+
+.about {
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f6cf9d;
+}
+
+.logo {
+  width: 320rpx;
+  height: 500rpx;
+}
+
+.ncst {
+  font-size: 50rpx;
+  /* color: #ffffff; */
+  margin: 20rpx;
+}
+
+.works {
+  font-size: 40rpx;
+  /* color: #ffffff; */
+  margin: 0rpx 0 30rpx 0;
+}
+
+.team {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  font-size: 33rpx;
+  line-height: 60rpx;
+  justify-content: center;
+  align-items: center;
+}
+
+.name {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 400rpx;
+  font-size: 30rpx;
+  /* color: #bbbbbb; */
+}
+
+
+@keyframes shake {
+  0%{
+    opacity: 0.3;
+  }
+  90%,
+
+  10% {
+    transform: translate3d(-1px, 0 0);
+  }
+
+  80%{
+  }
+
+  20% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  70%,
+
+  50%,
+
+  30% {
+    transform: translate3d(-4px, 0, 0);
+
+  }
+
+  60%,
+
+  40% {
+    transform: translate3d(4px, 0, 0);
+  }
+
+  100%{
+    opacity: 0;
+  }
+}
+
+.niganma-shake {
+  margin-top: 60rpx;
+  margin-left: 400rpx;
+  animation: shake 1s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  animation-delay: 1.5s;
+  animation-iteration-count: infinite;
+}

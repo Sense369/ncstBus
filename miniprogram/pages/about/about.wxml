@@ -1,0 +1,21 @@
+<!--pages/about/about.wxml-->
+<view class='about'>
+  <image class='logo' src='../../images/ncstBus.png' mode="aspectFit"></image>
+  <text class='ncst'>华北理工客运校车</text>
+  <text class='niganma-shake'>你干嘛~</text>
+  <text class='works'>- 全民制作人 -</text>
+
+  <view class='team'>
+    <view class='team-item'>
+      <view>Sang S.L.</view>
+      <view>Jiang T.</view>
+      <view>Guo S.</view>
+    </view>
+  </view>
+
+<view class='name'>
+  <text class='name-text'>✉ Sense369@aliyun.com</text>  
+</view>
+
+</view>
+

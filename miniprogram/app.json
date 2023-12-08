@@ -1,0 +1,16 @@
+{
+  "pages": [
+    "pages/bus/bus",
+    "pages/about/about"
+  ],
+  "window": {
+    "backgroundColor": "#fff9ee",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#f6cf9d",
+    "navigationBarTitleText": "华理客车",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2",
+  "lazyCodeLoading": "requiredComponents"
+}

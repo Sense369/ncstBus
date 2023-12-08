@@ -1,0 +1,325 @@
+/* pages/bus/bus.wxss */
+page{
+  width: 100%;
+  overflow-x: hidden;
+}
+.day{
+  width: 100%;
+  height: 100rpx;
+  background-color: #f6cf9d;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.day-left{
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  line-height: 100rpx;
+  /* color: rgba(0, 0, 0, 0.4); */
+}
+.day-right{
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  line-height: 100rpx;
+}
+.day-date{
+  width: 40%;
+  height: 80rpx;
+  display: flex;
+  line-height: 80rpx;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 10rpx;
+}
+
+/* 车站名 */
+.station{
+  width: 100%;
+  height: 100rpx;
+  background-color: #f6cf9d;
+  display: flex;
+  line-height: 120rpx;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  z-index: 99;
+}
+.stt-ncst{
+  width: 50%;
+  display: flex;  
+}
+.stt-tsxz{
+  width: 50%;
+  height: 100rpx;
+  float:right;
+  text-align:right;
+}
+.ncst-img{
+  width: 90rpx;
+  height: 100rpx;
+  margin: 0 20rpx 0 40rpx;
+}
+.tsxz-img{
+  width: 95rpx;
+  height: 100rpx;
+  margin: 0 40rpx 0 20rpx;
+  float:right;
+}
+
+/* 时刻表 */
+.time{
+  width: 100%;
+  display: flex;
+  background-color: #ffffff;
+  /* flex-direction: row; */
+}
+.time-ncst-bg{
+  width: 50vw;
+}
+.time-tsxz-bg{
+  width: 50%;
+  float: right;
+}
+.time-ncst{
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  /* z-index: 99; */
+}
+.time-tsxz{
+  float: right;
+}
+.time-color0{
+  background-color: #fff9ee;
+  border-right: #ffffff 1rpx solid;
+}
+.time-color1{
+  background-color: #ffffff;
+  border-right: #fff9ee 1rpx solid;
+  border-left: #fff9ee 1rpx solid;
+}
+
+.bus-ncst-text{
+  position: absolute;
+  left: 12rpx;
+  margin-top: -40rpx;
+  font-size: 20rpx;
+  color: rgba(0, 0, 0, 0.6);
+  z-index: 2;
+}
+.bus-tsxz-text{
+  left: 89%;
+}
+
+/* 87%到达 */
+.bus-ncst{
+  height: 90rpx;
+  width: 100rpx;
+  position: absolute;
+  left: 0;
+  transform: rotateY(180deg);
+  /* opacity:0.6; */
+  z-index: 1 ;
+}
+.bus-tsxz{
+  left: 87%;
+  transform: rotateY(0deg);
+}
+.bus-run{
+  opacity: 0.1;
+  animation: run 4s ease;
+  animation-delay: 1.5s;
+  animation-fill-mode : forwards;
+}
+@keyframes run
+{
+0% {}
+100%  {left: var(--left--);}
+}
+
+/* 分割线 */
+.line{
+  width: 100%;
+  height: 100rpx;
+  border-top: 1px solid #f6cf9d;
+}
+
+/* 车票 */
+.ticket{
+  width: 100%;
+  height: 280rpx;
+  /* border-top: 1px solid #f6cf9d; */
+  background-color: #F6F6F6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ticket-bg{
+  width: 90%;
+  height: 270rpx;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+}
+.circle{
+  width: 5%;
+  flex-direction: column;
+}
+.circle-box{
+  height: 20%;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.circle-item{
+  height: 20rpx;
+  width: 20rpx;
+  border-radius: 10rpx;
+  /* margin: 28rpx auto; */
+  background-color: #F6F6F6;
+}
+.main{
+  width: 65%;
+  height: 100%;
+  padding: 0 2rpx 0 8rpx;
+  background-color: rgb(232, 253, 255);
+  font-size: 20rpx;
+  border-right: dashed 1rpx #333333;
+}
+.keyun{
+  width: 20rpx;
+  height: 20rpx;
+  margin: 13rpx 8rpx 0 8rpx;
+}
+.title{
+  font-size: 20rpx;
+  font-weight: bolder;
+  color: #333333;
+}
+.title-jd{
+  font-size: 16rpx;
+  color: #333333;
+}
+.fpdm{
+  font-size: 16rpx;
+}
+.point{
+  display: flex;
+  align-items: center;
+  margin: 20rpx 0 10rpx 10rpx;
+  color: #999999;
+}
+.arrow{
+  width: 100rpx;
+  height: 8rpx;
+}
+.table{
+  width: 98%;
+  height: 140rpx;
+  border-right: 1rpx solid #555555;
+  border-bottom: 1rpx solid #555555;
+  font-size: 14rpx;
+  flex-direction: column;
+}
+.tr{
+  height: 25%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.th{
+  width: 20%;
+  height: 100%;
+  border-top: 1rpx solid #555555;
+  border-left: 1rpx solid #555555;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.th-date{
+  font-size: 13rpx;
+}
+.th-style{
+  width: 40.2%;
+}
+
+.secondary{
+  width: 25%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  column-count: auto;
+  align-items: center;
+  padding: 0rpx 0 0 10rpx;
+}
+.title2{
+  margin-top: 10rpx;
+}
+.fpdm2{
+  word-break:keep-all;
+  white-space: nowrap;
+  font-size: 12rpx;
+  margin: 8rpx;
+}
+.barCode{
+  width: 90%;
+  height: 50rpx;
+}
+.barCode-num{
+  word-break:keep-all;
+  white-space: nowrap;
+  font-size: 13rpx;
+  letter-spacing: 6rpx;
+  margin: 6rpx;
+}
+
+.buy{
+  height: 100rpx;
+  /* width: 94%; */
+  border: 2rpx solid #ff0000;
+  /* margin-top: 12rpx; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 40rpx;
+  line-height: 44rpx;
+  font-weight: bold;
+  color: #ff0000;
+  border-radius: 0;
+  padding: 0;
+}
+/* 购票按钮 */
+.buy:not([size='mini'])  {
+  width: 94%;
+}
+
+/* 提示 */
+.tip{
+  font-size: 18rpx;
+  color: #bbbbbb;
+  margin-left: 80rpx;
+  line-height: 50rpx;
+}
+.tip-1{
+  color: #ff0000;
+}
+
+.copyright{
+  width: 100%;
+  margin-top: 60rpx;
+  margin-bottom: 40rpx;
+  line-height: 140rpx;
+  font-size: 28rpx;
+  color: #cccccc;
+  display: flex;
+  justify-content: center;
+}
+.about{
+  color: #f5b45f;
+}
